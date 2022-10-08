@@ -94,10 +94,10 @@ const UserProfile = () => {
               key={post._id}
               postId={post._id}
               caption={post.caption}
-              postImage={post.image.url}
+              postImage=""
               likes={post.likes}
               comments={post.comments}
-              ownerImage={post.owner.avatar.url}
+              ownerImage=""
               ownerName={post.owner.name}
               ownerId={post.owner._id}
             />
@@ -110,7 +110,7 @@ const UserProfile = () => {
         {user && (
           <>
             <Avatar
-              src={user.avatar.url}
+              src=""
               sx={{ height: "8vmax", width: "8vmax" }}
             />
 
@@ -160,7 +160,7 @@ const UserProfile = () => {
                   key={follower._id}
                   userId={follower._id}
                   name={follower.name}
-                  avatar={follower.avatar.url}
+                  avatar=""
                 />
               ))
             ) : (
@@ -184,7 +184,7 @@ const UserProfile = () => {
                   key={follow._id}
                   userId={follow._id}
                   name={follow.name}
-                  avatar={follow.avatar.url}
+                  avatar=""
                 />
               ))
             ) : (

@@ -43,7 +43,7 @@ export const loadUser = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "LoadUserFailure",
-      payload: error.response.data.message,
+      payload: "failed",
     });
   }
 };
@@ -307,7 +307,7 @@ export const getUserPosts = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "userPostsFailure",
-      payload: error.response.data.message,
+      payload: "failed",
     });
   }
 };

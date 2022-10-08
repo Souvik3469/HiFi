@@ -191,7 +191,7 @@ const Post = ({
               <CommentCard
                 userId={item.user._id}
                 name={item.user.name}
-                avatar={item.user.avatar.url}
+                avatar=""
                 comment={item.comment}
                 commentId={item._id}
                 key={item._id}
