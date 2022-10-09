@@ -81,7 +81,7 @@ export const getMyPosts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "myPostsFailure",
-      payload: error.response.data.message,
+      payload: "failed",
     });
   }
 };
