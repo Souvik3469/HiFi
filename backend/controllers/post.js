@@ -8,7 +8,7 @@ exports.createPost = async (req, res) => {
     });
     const newPostData = {
       caption: req.body.caption,
-      image: {
+      imageUrl: {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
       },
@@ -16,6 +16,7 @@ exports.createPost = async (req, res) => {
     };
 
     const post = await Post.create(newPostData);
+    console.log(newPostData,"ddddddddddd");
 
     const user = await User.findById(req.user._id);
 
@@ -52,7 +53,7 @@ exports.deletePost = async (req, res) => {
       });
     }
 
-    await cloudinary.v2.uploader.destroy(post.image.public_id);
+    await cloudinary.v2.uploader.destroy(post.imageUrl.public_id);
 
     await post.remove();
 

@@ -36,6 +36,8 @@ const Account = () => {
 
   useEffect(() => {
     dispatch(getMyPosts());
+    console.log(posts,"posts");
+    console.log(user,"user")
   }, [dispatch]);
 
   useEffect(() => {
@@ -65,10 +67,10 @@ const Account = () => {
               key={post._id}
               postId={post._id}
               caption={post.caption}
-              postImage=""
+              postImage={post.imageUrl.url}
               likes={post.likes}
               comments={post.comments}
-              ownerImage=""
+              ownerImage={post.owner.avatar.url}
               ownerName={post.owner.name}
               ownerId={post.owner._id}
               isAccount={true}
@@ -81,7 +83,7 @@ const Account = () => {
       </div>
       <div className="accountright">
         <Avatar
-          src=""
+          src={user.avatar.url}
           sx={{ height: "8vmax", width: "8vmax" }}
         />
 

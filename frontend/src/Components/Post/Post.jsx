@@ -159,7 +159,7 @@ const Post = ({
               key={like._id}
               userId={like._id}
               name={like.name}
-              avatar=""
+              avatar={like.avatar.url}
             />
           ))}
         </div>
@@ -191,7 +191,7 @@ const Post = ({
               <CommentCard
                 userId={item.user._id}
                 name={item.user.name}
-                avatar=""
+                avatar={item.user.avatar.url}
                 comment={item.comment}
                 commentId={item._id}
                 key={item._id}

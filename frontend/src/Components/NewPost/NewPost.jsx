@@ -2,12 +2,14 @@ import { Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { createNewPost } from "../../Actions/Post";
 import { loadUser } from "../../Actions/User";
 import "./NewPost.css";
 const NewPost = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
+  const navigate =useNavigate();
 
   const { loading, error, message } = useSelector((state) => state.like);
   const dispatch = useDispatch();
@@ -30,6 +32,8 @@ const NewPost = () => {
     e.preventDefault();
     await dispatch(createNewPost(caption, image));
     dispatch(loadUser());
+    navigate("/account")
+    
   };
 
   useEffect(() => {

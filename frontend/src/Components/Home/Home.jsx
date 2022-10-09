@@ -12,20 +12,21 @@ const Home = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { loading, error } = useSelector(
+  const { loading,posts, error } = useSelector(
     (state) => state.postOfFollowing
   );
 
   const { users, loading: usersLoading } = useSelector(
     (state) => state.allUsers
   );
-const {posts} =useSelector((state)=>state.myPosts)
+
   const { error: likeError, message } = useSelector((state) => state.like);
   
   useEffect(() => {
     dispatch(getFollowingPosts());
-    dispatch(getpost())
+    
     console.log(posts,"posts")
+    dispatch(getpost())
     dispatch(getAllUsers());
   }, [dispatch]);
 
@@ -56,12 +57,13 @@ const {posts} =useSelector((state)=>state.myPosts)
               key={post._id}
               postId={post._id}
               caption={post.caption}
-              postImage=""
+              postImage={post.imageUrl.url}
               likes={post.likes}
               comments={post.comments}
-              ownerImage=""
+              ownerImage={post.owner.avatar.url}
               ownerName={post.owner.name}
               ownerId={post.owner._id}
+          
             />
           ))
         ) : (
@@ -75,7 +77,7 @@ const {posts} =useSelector((state)=>state.myPosts)
               key={user._id}
               userId={user._id}
               name={user.name}
-              avatar=""
+              avatar={user.avatar.url}
             />
           ))
         ) : (
